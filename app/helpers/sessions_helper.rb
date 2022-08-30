@@ -5,7 +5,7 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
-  # 永続的セッションを記憶します（Userモデルを参照）
+   # 永続的セッションを記憶します（Userモデルを参照）
   def remember(user)
     user.remember
     cookies.permanent.signed[:user_id] = user.id
@@ -40,15 +40,24 @@ module SessionsHelper
     end
   end
 
+  # 渡されたユーザーがログイン済みのユーザーであればtrueを返します。
+  def current_user?(user)
+    user == current_user
+  end
+
   # 現在ログイン中のユーザーがいればtrue、そうでなければfalseを返します。
   def logged_in?
     !current_user.nil?
   end
-  
-  def destroy
-    # ログイン中の場合のみログアウト処理を実行します。
-    log_out if logged_in?
-    flash[:success] = 'ログアウトしました。'
-    redirect_to root_url
+
+  # 記憶しているURL(またはデフォルトURL)にリダイレクトします。
+  def redirect_back_or(default_url)
+    redirect_to(session[:forwarding_url] || default_url)
+    session.delete(:forwarding_url)
+  end
+
+  # アクセスしようとしたURLを記憶します。
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end

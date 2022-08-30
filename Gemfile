@@ -59,3 +59,5 @@ gem 'bootstrap-sass'
 #bootstarapインストール
 gem 'bcrypt'
 # PWハッシュ
+gem 'faker' 
+#サンプルユーザをインストール
