@@ -61,3 +61,7 @@ gem 'bcrypt'
 # PWハッシュ
 gem 'faker' 
 #サンプルユーザをインストール
+gem 'will_paginate' 
+# ページネーション
+gem 'bootstrap-will_paginate' 
+# ページネーション
