@@ -65,3 +65,5 @@ gem 'will_paginate'
 # ページネーション
 gem 'bootstrap-will_paginate' 
 # ページネーション
+gem 'rails-i18n' 
+# 日本語追加
