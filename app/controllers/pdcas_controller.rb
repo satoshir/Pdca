@@ -1,0 +1,2 @@
+class PdcasController < ApplicationController
+end

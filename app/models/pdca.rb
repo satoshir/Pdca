@@ -1,0 +1,2 @@
+class Pdca < ApplicationRecord
+end
