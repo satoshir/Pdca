@@ -15,3 +15,9 @@ User.create!(name: name,
       password: password,
       password_confirmation: password)
 end
+
+50.times do |n|
+    pdca_name = "タスク#{n + 1}"
+end
+
+puts "Tasks Created"

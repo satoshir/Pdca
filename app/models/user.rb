@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # 「remember_token」という仮想の属性を作成します。
   attr_accessor :remember_token
+  has_many :pdcas, dependent: :destroy
   before_save { self.email = email.downcase }
 
   validates :name,  presence: true, length: { maximum: 50 }
