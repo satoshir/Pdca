@@ -11,3 +11,13 @@ ja:
           password_confirmation: パスワード再入力
           created_at: 作成日
           updated_at: 更新日
+        pdca:
+          id: ID
+          name: 名称
+          description: 詳細
+          created_at: 作成日
+          updated_at: 更新日
+          plan: 計画
+          do: 実行
+          check: 評価
+          adjust: 修正

@@ -20,4 +20,4 @@ end
     pdca_name = "タスク#{n + 1}"
 end
 
-puts "Tasks Created"
+puts "Pdcas Created"

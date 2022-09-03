@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_01_124411) do
+ActiveRecord::Schema.define(version: 2022_09_03_114640) do
 
   create_table "pdcas", force: :cascade do |t|
     t.string "name"
+    t.integer "user_id"
+    t.text "plan"
+    t.text "do"
+    t.text "check"
+    t.text "adjust"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
