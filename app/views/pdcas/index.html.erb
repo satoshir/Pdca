@@ -8,23 +8,28 @@
     <table class="table table-hover" id="table-tasks">
       <thead>
         <tr>
-          <th><%= Pdca.human_attribute_name :name %></th>
-          <th><%= Pdca.human_attribute_name :created_at %></th>
-          <th></th>
+          <th><%= Pdca.human_attribute_name :plan %></th>
+          <th><%= Pdca.human_attribute_name :do %></th>
+          <th><%= Pdca.human_attribute_name :check %></th>
+          <th><%= Pdca.human_attribute_name :adjust %></th>
         </tr>
       </thead>
+
+      <tbody>
         <% @pdcas.each do |pdca| %>
           <tr>
-            <td><%= link_to task.name, user_task_path(@user, pdca), id: "task-name" %></td>
-            <td><%= l(pdca.created_at, format: :long) %></td>
+            <td><%=  pdca.plan %></td>
+            <td><%= pdca.do %></td>
+            <td><%=  pdca.check %></td>
+            <td><%=  pdca.adjust %></td>
             <td>
-              <%= link_to "編集", edit_user_pdca_path(@user, task), class: "btn btn-success" %>
-              <%= link_to "削除", user_pdca_path(@user, pdca), method: :delete,
-              data: { confirm: "「#{pdca.name}」を削除します。よろしいですか？" }, class: "btn btn-danger" %>
+            <%= link_to "編集", edit_user_pdca_path(@user, pdca), class: "btn btn-success" %>
+             <%= link_to "削除", user_pdca_path(@user, pdca), method: :delete,
+              data: { confirm: "こちらを削除します。よろしいですか？" }, class: "btn btn-danger" %>
             </td>
           </tr>
         <% end %>
-      <tbody>
+      </tbody>
 
     </table>
   </div>    

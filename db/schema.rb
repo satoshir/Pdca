@@ -14,13 +14,14 @@ ActiveRecord::Schema.define(version: 2022_09_03_114640) do
 
   create_table "pdcas", force: :cascade do |t|
     t.string "name"
+    t.string "plan"
+    t.string "do"
+    t.string "check"
+    t.string "adjust"
     t.integer "user_id"
-    t.text "plan"
-    t.text "do"
-    t.text "check"
-    t.text "adjust"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_pdcas_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,4 +35,5 @@ ActiveRecord::Schema.define(version: 2022_09_03_114640) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "pdcas", "users"
 end

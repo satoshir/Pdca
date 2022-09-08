@@ -1,0 +1,24 @@
+<% provide(:title, @user.name) %>
+
+<h1>タスク詳細</h1>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <table class="table table-bordered" id="table-pdca">
+      <tbody>
+        <tr>
+            <td><%= @pdca.plan %></td>
+            <td><%= @pdca.do %></td>
+            <td><%= @pdca.check %></td>
+            <td><%= @pdca.adjust %></td>
+        </tr>
+
+    </table>
+    
+    <div>
+      <%= link_to "編集", edit_user_pdca_path(@user, @pdca), class: "btn btn-lg btn-success" %>
+      <%= link_to "削除", user_pdca_path(@user, @pdca), method: :delete,
+      data: { confirm: "「#{@pdca.name}」を削除します。よろしいですか？" }, class: "btn btn-lg btn-danger" %>
+    </div>
+  </div>    
+</div>
