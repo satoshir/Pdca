@@ -3,14 +3,17 @@ class PdcasController < ApplicationController
     before_action :set_pdca
 
     def index
+      @today = Date.today
       @pdcas = @user.pdcas
+      @pdcas = Pdca.where(done_at:nil).order(:time)
+      @pdcas_done = Pdca.where.not(done_at:nil)
     end
 
     def show
     end
 
     def new
-        @pdca = Pdca.new
+      @pdca = Pdca.new
     end
 
     def create
@@ -19,7 +22,7 @@ class PdcasController < ApplicationController
             flash[:success] = "タスクを新規作成しました。"
             redirect_to user_pdcas_url @user
         else
-            flash[:danger] = "5文字以上入力してください。"
+            flash.now[:danger] = "5文字以上入力してください。"
             render :new
         end
     end
@@ -33,6 +36,13 @@ class PdcasController < ApplicationController
       end
     end
 
+    def done
+      @today = Date.today
+      pdca = Pdca.find(params[:id])
+      pdca.update(done_at: @today )
+      redirect_to :action => "index"
+    end
+
 
     def edit
     end
@@ -43,10 +53,17 @@ class PdcasController < ApplicationController
       redirect_to user_pdcas_url @user
     end
 
+    # def finish
+    # end
+    
+
+
+
+
     private
 
     def pdca_params
-      params.require(:pdca).permit(:plan, :do, :check, :adjust)
+      params.require(:pdca).permit(:plan, :do, :check, :adjust, :time, :title, :done_at)
     end
 
     def set_user

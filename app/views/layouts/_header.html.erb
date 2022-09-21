@@ -1,12 +1,15 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "Attendance App", root_path, id: "logo" %>
+    <%= link_to "PDCAサイクル", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "トップ", root_path %></li>
         <% if logged_in? %>
+        <% if current_user.admin? %>
           <li><%= link_to "ユーザー一覧", users_path %></li>
-          <li><%= link_to "PDCA作成", new_user_pdca_path(current_user), class: "header-list" %></li>
+         <% end %>
+        
+        
           <li class="dropdown">
             <a href="#" class="dropdown-toggle header-list" data-toggle="dropdown" id="dropdown-title">
               <%= current_user.name %> <b class="caret"></b>
@@ -15,7 +18,8 @@
               <li><%= link_to "プロフィール", current_user %></li>
               <li><%= link_to "設定", edit_user_path(current_user) %></li>
               <li class="dropdown-header">PDCA</li>
-               <li><%= link_to "PDCA一覧", user_pdcas_path(current_user) %></li>
+               <li><%= link_to "PDCA作成", new_user_pdca_path(current_user) %></li>
+              <li><%= link_to "PDCA一覧", user_pdcas_path(current_user) %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "ログアウト", logout_path, method: :delete %>
@@ -29,3 +33,4 @@
     </nav>
   </div>
 </header>
+

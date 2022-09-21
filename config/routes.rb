@@ -6,8 +6,17 @@ Rails.application.routes.draw do
   get    '/login', to: 'sessions#new'
   post   '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  
+
+
+
 
   resources :users do
-    resources :pdcas
+    member do
+      post '/pdcas/:id/done' => 'pdcas#done',   as: 'done'
+    end
+    resources :pdcas 
+      post 'pdca/complete'
   end
+
 end

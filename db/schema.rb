@@ -10,17 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_03_114640) do
+ActiveRecord::Schema.define(version: 2022_09_11_132554) do
 
   create_table "pdcas", force: :cascade do |t|
     t.string "name"
-    t.string "plan"
-    t.string "do"
-    t.string "check"
-    t.string "adjust"
+    t.text "plan"
+    t.text "do"
+    t.text "check"
+    t.text "adjust"
     t.integer "user_id"
+    t.date "time"
+    t.datetime "done_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "completed"
+    t.string "status"
     t.index ["user_id"], name: "index_pdcas_on_user_id"
   end
 

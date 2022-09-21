@@ -5,19 +5,21 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <%= form_with(model: @pdca, url: user_pdcas_path(@user), local: true) do |f| %>
-      <%= render partial: 'shared/error_messages', locals: { obj: @pdca } %>
+    <%= render partial: 'shared/error_messages', locals: { obj: @pdca } %>
+      <%= f.label :name, class: "label-form" %>
+      <%= f.text_field :name, class: "form-control" %>
       
       <%= f.label :plan, class: "label-form" %>
-      <%= f.text_field :plan, class: "form-control" %>
+      <%= f.text_area :plan, rows: 3, class: "form-control" %>
 
       <%= f.label :do, class: "label-form" %>
-      <%= f.text_field :do, class: "form-control" %>
+      <%= f.text_area :do, rows: 3, class: "form-control" %>
 
       <%= f.label :check, class: "label-form" %>
-      <%= f.text_field :check, class: "form-control" %>
+      <%= f.text_area :check, rows: 3,  class: "form-control" %>
 
       <%= f.label :adjust, class: "label-form" %>
-      <%= f.text_field :adjust, class: "form-control" %>
+      <%= f.text_area :adjust, rows: 3, class: "form-control" %>
 
       <%= f.submit "新規登録", class: "btn btn-lg btn-primary btn-form" %>
     <% end %>

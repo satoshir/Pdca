@@ -13,6 +13,7 @@ ja:
           updated_at: 更新日
         pdca:
           id: ID
+          task: タスク
           name: 名称
           description: 詳細
           created_at: 作成日
@@ -21,3 +22,5 @@ ja:
           do: 実行
           check: 評価
           adjust: 修正
+          deadline: 締め切り
+          

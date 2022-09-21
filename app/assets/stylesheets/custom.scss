@@ -5,6 +5,7 @@
 
 body {
   padding-top: 60px;
+  background-color: #f5f8fb;
 }
 
 section {
@@ -42,7 +43,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: #555;
 }
 
 p {
@@ -50,7 +51,18 @@ p {
   line-height: 1.7em;
 }
 
+// .container{
+//    background-color: rgb(128, 124, 0);
+// }
+
+
+
 /* header */
+.navbar-inverse  {
+  background-color: rgb(36, 0, 128);
+}
+
+// header class="navbar navbar-fixed-top navbar-inverse"
 
 #logo {
   float: left;
@@ -66,6 +78,18 @@ p {
 #logo:hover {
   color: #fff;
   text-decoration: none;
+}
+
+li .header-list {
+  color: #fff !important;
+  &:hover {
+    color: silver !important;
+  }
+}
+
+li .dropdown-header {
+  background-color: rgba(200, 200, 200, 0.5);
+  font-weight: bold;
 }
 
 /* debug */

@@ -16,12 +16,12 @@ User.create!(name: name,
       password_confirmation: password)
 end
 
-50.times do |n|
-    pdca = "タスク#{n + 1}"
-    dp = "タスク詳細#{n + 1}"
-    # admin_user.tasks.create!(name: task_name, description: description)
-    # guest_user.tasks.create!(name: task_name, description: description)
-end
+# 50.times do |n|
+#     pdca = "タスク#{n + 1}"
+#     dp = "タスク詳細#{n + 1}"
+#     # admin_user.tasks.create!(name: task_name, description: description)
+#     # guest_user.tasks.create!(name: task_name, description: description)
+# end
 
 # 50.times do |n|
 #     pdca_name = "タスク#{n + 1}"
