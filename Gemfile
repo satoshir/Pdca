@@ -69,3 +69,6 @@ gem 'rails-i18n'
 # 日本語追加
 gem 'devise'
 # ログイン機能
+
+ gem 'omniauth-google-oauth2'
+ gem 'omniauth-rails_csrf_protection'
